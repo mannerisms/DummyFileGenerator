@@ -5,6 +5,7 @@ from faker import Faker
 
 class Runner():
     """starts a new application instance"""
+
     def __init__(self):
         self.location = self.input_location()
         self.directory = self.input_directory()
@@ -22,7 +23,8 @@ class Runner():
 
     # Create a new top level folder if folder does not exist
     def input_directory(self):
-        directory = str(raw_input('Please specify a top directory name: ')).strip()
+        directory = str(
+            raw_input('Please specify a top directory name: ')).strip()
         directory = os.path.join(self.location, directory)
         if not os.path.exists(directory):
             os.makedirs(directory)
@@ -31,10 +33,11 @@ class Runner():
     def input_range(self, type):
         while True:
             if type == 1:
-                max = raw_input('Please specify a maximum number of subfolders: ')
+                max = raw_input(
+                    'Please specify a maximum number of subfolders: ')
             elif type == 2:
-                max = raw_input('Please specify a maximum number of files per folder: ')
-
+                max = raw_input(
+                    'Please specify a maximum number of files per folder: ')
             if max.isdigit():
                 return int(max)
                 break
